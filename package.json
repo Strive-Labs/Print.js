@@ -1,5 +1,5 @@
 {
-  "name": "print-js",
+  "name": "@strive-labs/print-js",
   "homepage": "http://printjs.crabbly.com",
   "description": "A tiny javascript library to help printing from the web.",
   "version": "1.6.0",
@@ -39,8 +39,8 @@
     "production": "webpack --mode production --progress --hide-modules",
     "coverage": "open coverage/lcov-report/index.html",
     "coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-		"start": "webpack-dev-server --public http://localhost:8080/test/manual --open",
-		"standard:fix": "standard --fix"
+    "start": "webpack-dev-server --public http://localhost:8080/test/manual --open",
+    "standard:fix": "standard --fix"
   },
   "author": "Rodrigo Vieira <rodrigo@crabbly.com>",
   "standard": {

@@ -1,98 +1,23 @@
 # Print.js
+forked from https://github.com/crabbly/Print.js  
+The original print-js does not work with SSR (Next.js), there's an [open PR](https://github.com/crabbly/Print.js/pull/543) to fix that
+that has a long time just waiting to be merged. So in the meantime we made this fork that has that small change and made our own 
+[npm package](https://www.npmjs.com/package/@strive-labs/print-js). If the PR gets merged, please get rid of this repo and npm package and use the original print-js
 
-[![Build Status](https://travis-ci.org/crabbly/Print.js.svg?branch=master)](https://travis-ci.org/crabbly/Print.js)
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE)
-[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/)
-[![npm](https://img.shields.io/npm/v/print-js.svg)](https://www.npmjs.com/package/print-js)
+## Testing on landing-gear
+- Change dependency on landing-gear's package.json (don't forget to revert the change before doing a commit)
+  ```diff
+  -     "@strive-labs/print-js": "^1.6.0",
+  +     "@strive-labs/print-js": "file:./relative/path/to/local/Print.js",
+  ```
+- `npm install`
 
-A tiny javascript library to help printing from the web.
+Note: You may need to manually delete the dependency from node_modules to return back to the npm's registry package,
+it works by creating a symlink to the local print-js directory, and `npm install` sometimes has problem reverting the symlink
 
-> For documentation and examples please visit: [printjs.crabbly.com](http://printjs.crabbly.com)
-
-## Installation
-
-You can download the latest version of Print.js from the [GitHub releases](https://github.com/crabbly/Print.js/releases/latest) or use the [Print.js CDN](http://printjs.crabbly.com/#cdn) available on the documentation page.
-
-To install via npm:
-
-```bash
-npm install print-js --save
+## Publishing
 ```
-
-To install via yarn:
-
-```bash
-yarn add print-js
-```
-
-Import the library into your project:
-
-```js
-import printJS from 'print-js'
-```
-
-## Documentation
-
-You can find documentation at [printjs.crabbly.com](http://printjs.crabbly.com/#documentation).
-
-## Contributing to Print.js
-
-[![devDependencies Status](https://david-dm.org/crabbly/print.js/dev-status.svg)](https://david-dm.org/crabbly/print.js?type=dev)
-[![dependencies Status](https://david-dm.org/crabbly/print.js/status.svg)](https://david-dm.org/crabbly/print.js)
-
-Contributions to Print.js are greatly welcomed and encouraged.
-
-##### Using issues
-
-The [issue tracker](https://github.com/crabbly/Print.js/issues) is the preferred channel for reporting bugs, requesting new features and submitting pull requests.
-
-Keep in mind that we would like to keep this a lightweight library.
-
-Please do not use the issues channel for support requests. For help with using Print.js, please ask questions on Stack Overflow and use the tag `printjs`.
-
-##### Reporting bugs
-
-Well structured, detailed bug reports are hugely valuable for the project.
-
-* Check the issue search to see if it has already been reported.
-* Isolate the problem to a simple test case.
-* Create a codepen, fiddle, codesandbox or similar online example replicating the issue.
-
-Please provide any additional details associated with the bug.
-
-##### Pull requests
-
-Clear, concise pull requests are excellent at continuing the project's community driven growth.  
-
-Please make your commits in logical sections with clear commit messages.  
-
-##### Setting up a dev environment
-
-```bash
 npm install
-npm run watch
+npm run production
+npm publish
 ```
-
-##### Tests
-
-The library is written following the [Javascript Standard](https://standardjs.com) code style. When running tests, we will also test for any style issues or warnings.
-
-Automated tests are written using the [Jasmine](https://jasmine.github.io) framework and [Karma](https://karma-runner.github.io) runner.
-
-To run the automated tests:
-
-```bash
-npm run test
-```
-
-To manually test the library features:
-
-```bash
-npm start
-```
-
-This will serve `test\manual\test.html` and open `http://localhost:8080/test/manual` in your default browser.
-
-## License
-
-Print.js is available under the [MIT license](https://github.com/crabbly/Print.js/blob/master/LICENSE).
